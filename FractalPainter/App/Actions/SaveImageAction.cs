@@ -6,10 +6,14 @@ using FractalPainting.Infrastructure.UiActions;
 
 namespace FractalPainting.App.Actions
 {
-    public class SaveImageAction : IUiAction, INeed<IImageDirectoryProvider>, INeed<IImageHolder>
+    public class SaveImageAction : IUiAction, INeed<IImageDirectoryProvider>
     {
         private IImageDirectoryProvider imageDirectoryProvider;
         private IImageHolder imageHolder;
+        public SaveImageAction(IImageHolder imageHolder)
+        {
+            this.imageHolder = imageHolder;
+        }
 
         public void SetDependency(IImageDirectoryProvider dependency)
         {
